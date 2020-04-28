@@ -69,7 +69,7 @@ get_ods_organisations <- function(name = as.character(NA),
   # url is built up of api and the parameters. We need to keep a copy of the
   # initial url to compare to later: the api will fail to run if no parameters
   # are passed
-  url <- init_url <- paste0(ODS_API_ENDPOINT, "organisations?Limit=", LIMIT)
+  url <- init_url <- paste0(getOption("ODS_API_ENDPOINT"), "organisations?Limit=", LIMIT)
 
   # argument checking ==========================================================
   if (!is.na(name)) {

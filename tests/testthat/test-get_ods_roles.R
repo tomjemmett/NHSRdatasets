@@ -41,9 +41,10 @@ test_that("it calls janitor::clean_names", {
   expect_call(m, 1, janitor::clean_names(roles))
 })
 
-test_that("it calls httr::GET and queries the correct API", {
+test_that("it calls httr::GET and queries the endpoint set in Options", {
   m <- mock()
-  expected_url <- paste0(NHSRdatasets:::ODS_API_ENDPOINT, "roles")
+  set_ods_api_endpoint("https://directory.spineservices.nhs.uk/ORD/2-0-0/")
+  expected_url <- paste0(getOption("ODS_API_ENDPOINT"), "roles")
 
   stub(get_ods_roles, "httr::status_code", 200)
   stub(get_ods_roles, "httr::content", list(Roles = "data"))
