@@ -1,5 +1,3 @@
-ODS_API_ENDPOINT <- "https://directory.spineservices.nhs.uk/ORD/2-0-0/"
-
 #' ODS Roles
 #'
 #' This function queries the \href{https://digital.nhs.uk/services/organisation-data-service/guidance-for-developers/roles-endpoint}{ODS Roles API}.
@@ -22,7 +20,7 @@ ODS_API_ENDPOINT <- "https://directory.spineservices.nhs.uk/ORD/2-0-0/"
 #' get_ods_roles()
 #' }
 get_ods_roles <- function() {
-  url <- paste0(ODS_API_ENDPOINT, "roles")
+  url <- paste0(getOption("ODS_API_ENDPOINT"), "roles")
 
   res <- httr::GET(url)
 
